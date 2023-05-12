@@ -17,8 +17,6 @@ axios.interceptors.request.use(createSignature, function (error) {
 });
 
 function createSignature(config) {
-  console.log("Creating a signature for the request...");
-
   var ts = Math.floor(Date.now() / 1000);
   const signature = crypto.createHmac("sha256", SUMSUB_SECRET_KEY);
   signature.update(ts + config.method.toUpperCase() + config.url);
@@ -36,8 +34,6 @@ function createSignature(config) {
 }
 
 const createApplicant = (externalUserId, levelName) => {
-  console.log("Creating an applicant...");
-
   var method = "post";
   var url = "/resources/applicants?levelName=" + levelName;
   var ts = Math.floor(Date.now() / 1000);
@@ -61,8 +57,6 @@ const createApplicant = (externalUserId, levelName) => {
 };
 
 function addDocument(applicantId) {
-  console.log("Adding document to the applicant...");
-
   var method = "post";
   var url = `/resources/applicants/${applicantId}/info/idDoc`;
   var filePath = "resources/sumsub-logo.png";
@@ -93,8 +87,6 @@ function addDocument(applicantId) {
 }
 
 const getApplicantStatus = (applicantId) => {
-  console.log("Getting the applicant status...");
-
   var method = "get";
   var url = `/resources/applicants/${applicantId}/status`;
 
@@ -132,8 +124,6 @@ function createAccessToken(
   levelName = "basic-kyc-level",
   ttlInSecs = 600
 ) {
-  console.log("Creating an access token for initializng SDK...");
-
   var method = "post";
   var url = `/resources/accessTokens?userId=${externalUserId}&ttlInSecs=${ttlInSecs}&levelName=${levelName}`;
 
