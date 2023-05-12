@@ -4,6 +4,7 @@ const {
   getApplicantData,
   createApplicant,
   createAccessToken,
+  getApplicantStatus,
 } = require("../utils/helpers/verify.helpers");
 const router = express.Router();
 
@@ -15,6 +16,20 @@ router.get(
   "/getApplicantData/:address",
   asyncMiddleware(async (req, res, next) => {
     await axios(getApplicantData(req.params.address))
+      .then(function (response) {
+        res.send(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.send(error.response.data);
+      });
+  })
+);
+
+router.get(
+  "/getApplicantStatus/:address",
+  asyncMiddleware(async (req, res, next) => {
+    await axios(getApplicantStatus(req.params.address))
       .then(function (response) {
         res.send(response.data);
       })

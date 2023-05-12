@@ -150,4 +150,9 @@ function createAccessToken(
   return config;
 }
 
-module.exports = { getApplicantData, createApplicant, createAccessToken };
+module.exports = {
+  getApplicantData,
+  createApplicant,
+  createAccessToken,
+  getApplicantStatus,
+};
