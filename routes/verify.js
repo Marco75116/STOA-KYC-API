@@ -73,8 +73,7 @@ router.post(
 router.post(
   "/webhook",
   asyncMiddleware(async (req, res, next) => {
-    console.log("web");
-    res.send("IN");
+    console.log(req.body);
   })
 );
 
