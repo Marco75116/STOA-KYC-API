@@ -1,3 +1,4 @@
+const { ethers } = require("ethers");
 const express = require("express");
 const axios = require("axios");
 const {
@@ -6,6 +7,7 @@ const {
   createAccessToken,
   getApplicantStatus,
 } = require("../utils/helpers/verify.helpers");
+
 const router = express.Router();
 
 const asyncMiddleware = (fn) => (req, res, next) => {
@@ -41,9 +43,11 @@ router.get(
 );
 
 router.get(
-  "/getAccessToken/:address",
+  "/getAccessToken/:signature",
   asyncMiddleware(async (req, res) => {
-    await axios(createAccessToken(req.params.address, "basic-kyc-level", 1200))
+    const message = "Verify your account";
+    const address = ethers.verifyMessage(message, req.params.signature);
+    await axios(createAccessToken(address, "basic-kyc-level", 1200))
       .then((response) => {
         res.send(response.data);
       })
