@@ -70,4 +70,11 @@ router.post(
   })
 );
 
+router.get(
+  "/webhook",
+  asyncMiddleware(async (req, res, next) => {
+    console.log("web");
+  })
+);
+
 module.exports = router;
