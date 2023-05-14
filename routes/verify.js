@@ -70,10 +70,11 @@ router.post(
   })
 );
 
-router.get(
+router.post(
   "/webhook",
   asyncMiddleware(async (req, res, next) => {
     console.log("web");
+    res.send("IN");
   })
 );
 
