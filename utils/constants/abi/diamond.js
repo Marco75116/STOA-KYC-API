@@ -1,4 +1,4 @@
-export const abiDiamond = [
+const abiDiamond = [
   {
     inputs: [
       {
@@ -1115,3 +1115,7 @@ export const abiDiamond = [
     type: "function",
   },
 ];
+
+module.exports = {
+  abiDiamond,
+};
