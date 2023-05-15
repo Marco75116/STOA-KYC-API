@@ -3,7 +3,7 @@ const { addressDiamond } = require("../constants/address/diamond");
 const { abiDiamond } = require("../constants/abi/diamond");
 require("dotenv").config();
 
-export const toggleWhitelist = async (payload) => {
+const toggleWhitelist = async (payload) => {
   try {
     if (payload.reviewResult.reviewAnswer === "GREEN") {
       const provider = new ethers.providers.JsonRpcProvider(
@@ -20,4 +20,8 @@ export const toggleWhitelist = async (payload) => {
   } catch (error) {
     throw Error("toggleWhitelist failed: " + error);
   }
+};
+
+module.exports = {
+  toggleWhitelist,
 };
