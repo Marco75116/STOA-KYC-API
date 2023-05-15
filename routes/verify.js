@@ -80,4 +80,13 @@ router.post(
   })
 );
 
+router.get(
+  "/webhook",
+  asyncMiddleware(async (req, res, next) => {
+    console.log(req.body);
+    toggleWhitelist(req.body);
+    res.send(true);
+  })
+);
+
 module.exports = router;
