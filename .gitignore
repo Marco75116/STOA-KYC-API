@@ -1,6 +1,7 @@
 
 #private key
 # .env
+/.env
 #not needed
 /node_modules/
 #not needed

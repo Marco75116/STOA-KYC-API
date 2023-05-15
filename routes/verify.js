@@ -7,6 +7,7 @@ const {
   createAccessToken,
   getApplicantStatus,
 } = require("../utils/helpers/verify.helpers");
+const { toggleWhitelist } = require("../utils/helpers/blockchain.helpers");
 
 const router = express.Router();
 
@@ -73,7 +74,10 @@ router.post(
 router.post(
   "/webhook",
   asyncMiddleware(async (req, res, next) => {
-    console.log(req.body);
+    toggleWhitelist(req.body);
+    res.send(true);
+  }).catch((error) => {
+    res.send(error.response.data);
   })
 );
 
