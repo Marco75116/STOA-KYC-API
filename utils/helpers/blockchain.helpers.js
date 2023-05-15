@@ -6,11 +6,11 @@ require("dotenv").config();
 const toggleWhitelist = async (payload) => {
   try {
     if (payload.reviewResult.reviewAnswer === "GREEN") {
-      const provider = new ethers.providers.JsonRpcProvider(
+      const provider = new ethers.JsonRpcProvider(
         `https://polygon-mumbai.g.alchemy.com/v2/${process.env.API_KEY}`
       );
-      const signer = ethers.Wallet(process.env.SECRET_KEY, provider);
-      const diamond_Contract = await ethers.Contract(
+      const signer = new ethers.Wallet(process.env.SECRET_KEY, provider);
+      const diamond_Contract = await new ethers.Contract(
         addressDiamond,
         abiDiamond,
         signer
