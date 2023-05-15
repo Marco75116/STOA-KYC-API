@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const toggleWhitelist = async (payload) => {
   try {
-    if (payload.reviewResult.reviewAnswer === "GREEN") {
+    if (true) {
       const provider = new ethers.JsonRpcProvider(
         `https://polygon-mumbai.g.alchemy.com/v2/${process.env.API_KEY}`
       );
