@@ -76,8 +76,6 @@ router.post(
   asyncMiddleware(async (req, res, next) => {
     toggleWhitelist(req.body);
     res.send(true);
-  }).catch((error) => {
-    res.send(error.response.data);
   })
 );
 
