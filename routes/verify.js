@@ -74,6 +74,7 @@ router.post(
 router.post(
   "/webhook",
   asyncMiddleware(async (req, res, next) => {
+    console.log(req.body);
     toggleWhitelist(req.body);
     res.send(true);
   })
