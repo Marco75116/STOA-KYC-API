@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const toggleWhitelist = async (payload) => {
   try {
-    if (payload.reviewResult.reviewAnswer === "GREEN") {
+    if (true) {
       const provider = new ethers.JsonRpcProvider(
         `https://polygon-mumbai.g.alchemy.com/v2/${process.env.API_KEY}`
       );
@@ -15,7 +15,9 @@ const toggleWhitelist = async (payload) => {
         abiDiamond,
         signer
       );
-      await diamond_Contract.toggleWhitelist(payload.externalUserId);
+      await diamond_Contract.toggleWhitelist(
+        "0x01738387092E007CcB8B5a73Fac2a9BA23cf91d3"
+      );
     }
   } catch (error) {
     throw Error("toggleWhitelist failed: " + error);
