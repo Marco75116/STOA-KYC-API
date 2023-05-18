@@ -74,16 +74,6 @@ router.post(
 router.post(
   "/webhook",
   asyncMiddleware(async (req, res, next) => {
-    console.log("webHook", req.body);
-    toggleWhitelist(req.body);
-    res.send(true);
-  })
-);
-
-router.get(
-  "/webhook",
-  asyncMiddleware(async (req, res, next) => {
-    console.log("webHook", req.body);
     toggleWhitelist(req.body);
     res.send(true);
   })
