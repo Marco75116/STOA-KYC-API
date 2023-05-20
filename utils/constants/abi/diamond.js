@@ -1,4 +1,4 @@
-const abiDiamond = [
+export const abiDiamond = [
   {
     inputs: [
       {
@@ -244,176 +244,7 @@ const abiDiamond = [
         name: "account",
         type: "address",
       },
-      {
-        internalType: "uint8",
-        name: "isAdmin",
-        type: "uint8",
-      },
     ],
-    name: "setAdmin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "feeCollector",
-        type: "address",
-      },
-    ],
-    name: "setFeeCollector",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-    ],
-    name: "setMinDeposit",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-    ],
-    name: "setMinWithdraw",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint8",
-        name: "enabled",
-        type: "uint8",
-      },
-    ],
-    name: "setMintEnabled",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-    ],
-    name: "setMintFee",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-    ],
-    name: "setPointsRate",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint8",
-        name: "enabled",
-        type: "uint8",
-      },
-    ],
-    name: "setRedeemEnabled",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-    ],
-    name: "setRedeemFee",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
-      {
-        internalType: "uint8",
-        name: "whitelisted",
-        type: "uint8",
-      },
-    ],
-    name: "setWhitelist",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "getAdminStatus",
     outputs: [
       {
@@ -426,7 +257,13 @@ const abiDiamond = [
     type: "function",
   },
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
     name: "getFeeCollectorStatus",
     outputs: [
       {
@@ -442,130 +279,16 @@ const abiDiamond = [
     inputs: [
       {
         internalType: "address",
-        name: "fiAsset",
+        name: "account",
         type: "address",
       },
     ],
-    name: "getMinDeposit",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getMinWithdraw",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getMintEnabled",
+    name: "getUpkeepStatus",
     outputs: [
       {
         internalType: "bool",
         name: "",
         type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getMintFee",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getPointsRate",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getRedeemEnabled",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
-      },
-    ],
-    name: "getRedeemFee",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -593,18 +316,19 @@ const abiDiamond = [
   {
     inputs: [
       {
-        internalType: "address[]",
-        name: "accounts",
-        type: "address[]",
-      },
-      {
         internalType: "address",
-        name: "fiAsset",
+        name: "feeCollector",
         type: "address",
       },
     ],
-    name: "batchCaptureYieldPoints",
-    outputs: [],
+    name: "setFeeCollector",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -615,14 +339,15 @@ const abiDiamond = [
         name: "account",
         type: "address",
       },
+    ],
+    name: "toggleAdmin",
+    outputs: [
       {
-        internalType: "address",
-        name: "fiAsset",
-        type: "address",
+        internalType: "bool",
+        name: "",
+        type: "bool",
       },
     ],
-    name: "captureYieldPoints",
-    outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -630,18 +355,94 @@ const abiDiamond = [
     inputs: [
       {
         internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "toggleUpkeep",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "toggleWhitelist",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "accounts",
+        type: "address[]",
+      },
+      {
+        internalType: "address",
         name: "fiAsset",
         type: "address",
       },
+    ],
+    name: "captureYieldPoints",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "getExternalPoints",
+    outputs: [
       {
         internalType: "uint256",
-        name: "newSupply",
+        name: "",
         type: "uint256",
       },
     ],
-    name: "changeSupply",
-    outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getInitReward",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -663,6 +464,67 @@ const abiDiamond = [
         internalType: "uint256",
         name: "pointsTotal",
         type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getPointsRate",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getReferReward",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "getRewardStatus",
+    outputs: [
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
       },
     ],
     stateMutability: "view",
@@ -704,14 +566,15 @@ const abiDiamond = [
         name: "newVault",
         type: "address",
       },
-      {
-        internalType: "uint256",
-        name: "buffer",
-        type: "uint256",
-      },
     ],
     name: "migrateVault",
-    outputs: [],
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -724,7 +587,23 @@ const abiDiamond = [
       },
     ],
     name: "rebase",
-    outputs: [],
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "assets",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "yield",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "shareYield",
+        type: "uint256",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -737,7 +616,13 @@ const abiDiamond = [
       },
     ],
     name: "rebaseOptIn",
-    outputs: [],
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -750,7 +635,181 @@ const abiDiamond = [
       },
     ],
     name: "rebaseOptOut",
-    outputs: [],
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "accounts",
+        type: "address[]",
+      },
+      {
+        internalType: "uint256",
+        name: "points",
+        type: "uint256",
+      },
+    ],
+    name: "reward",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "buffer",
+        type: "uint256",
+      },
+    ],
+    name: "setBuffer",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setInitReward",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setPointsRate",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setReferReward",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        internalType: "uint8",
+        name: "initClaimed",
+        type: "uint8",
+      },
+      {
+        internalType: "uint8",
+        name: "referClaimed",
+        type: "uint8",
+      },
+      {
+        internalType: "uint8",
+        name: "referDisabled",
+        type: "uint8",
+      },
+    ],
+    name: "setRewardStatus",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "vault",
+        type: "address",
+      },
+    ],
+    name: "setVault",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -840,6 +899,139 @@ const abiDiamond = [
         type: "address",
       },
     ],
+    name: "getMinDeposit",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getMinWithdraw",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getMintEnabled",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getMintFee",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getRedeemEnabled",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getRedeemFee",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "getServiceFee",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
     name: "getUnderlyingAsset",
     outputs: [
       {
@@ -873,37 +1065,118 @@ const abiDiamond = [
   {
     inputs: [
       {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
         internalType: "uint256",
         name: "amount",
         type: "uint256",
       },
+    ],
+    name: "setMinDeposit",
+    outputs: [
       {
-        internalType: "uint256",
-        name: "minAmountOut",
-        type: "uint256",
+        internalType: "bool",
+        name: "",
+        type: "bool",
       },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
       {
         internalType: "address",
         name: "fiAsset",
         type: "address",
       },
       {
-        internalType: "address",
-        name: "depositFrom",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
       },
     ],
-    name: "sharesToFi",
+    name: "setMinWithdraw",
     outputs: [
       {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
         internalType: "uint256",
-        name: "mintAfterFee",
+        name: "amount",
         type: "uint256",
+      },
+    ],
+    name: "setMintFee",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setRedeemFee",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setServiceFee",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
       },
     ],
     stateMutability: "nonpayable",
@@ -934,6 +1207,93 @@ const abiDiamond = [
       {
         internalType: "address",
         name: "recipient",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "referral",
+        type: "address",
+      },
+    ],
+    name: "sharesToFi",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "mintAfterFee",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "toggleMintEnabled",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+    ],
+    name: "toggleRedeemEnabled",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "minAmountOut",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "fiAsset",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "depositFrom",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "recipient",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "referral",
         type: "address",
       },
     ],
@@ -1036,6 +1396,16 @@ const abiDiamond = [
         type: "uint256",
       },
       {
+        internalType: "uint256",
+        name: "amountOutMinimum",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "deadline",
+        type: "uint256",
+      },
+      {
         internalType: "address",
         name: "tokenIn",
         type: "address",
@@ -1072,6 +1442,11 @@ const abiDiamond = [
       {
         internalType: "uint256",
         name: "amountInMaximum",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "deadline",
         type: "uint256",
       },
       {
@@ -1115,16 +1490,16 @@ const abiDiamond = [
     type: "function",
   },
   {
-    inputs: [
+    inputs: [],
+    name: "executeTest",
+    outputs: [
       {
         internalType: "address",
-        name: "account",
+        name: "",
         type: "address",
       },
     ],
-    name: "toggleWhitelist",
-    outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
 ];

@@ -1,4 +1,4 @@
-const addressDiamond = "0xEBdBbbeA597Ac421E9f0836d06f7AF0eF96e842d";
+const addressDiamond = "0x5769dc91fE18165C98607Ed341275fe39cBefBC7";
 
 module.exports = {
   addressDiamond,

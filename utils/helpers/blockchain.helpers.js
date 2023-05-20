@@ -7,7 +7,7 @@ const toggleWhitelist = async (payload) => {
   try {
     if (payload.reviewResult.reviewAnswer === "GREEN") {
       const provider = new ethers.JsonRpcProvider(
-        `https://polygon-mumbai.g.alchemy.com/v2/${process.env.API_KEY}`
+        `https://arb-goerli.g.alchemy.com/v2/${process.env.API_KEY}`
       );
       const signer = new ethers.Wallet(process.env.SECRET_KEY, provider);
       const diamond_Contract = await new ethers.Contract(
