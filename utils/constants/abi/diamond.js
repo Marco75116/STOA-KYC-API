@@ -1,4 +1,4 @@
-export const abiDiamond = [
+const abiDiamond = [
   {
     inputs: [
       {
