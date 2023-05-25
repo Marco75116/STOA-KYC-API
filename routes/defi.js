@@ -6,6 +6,7 @@ const {
 const {
   getDayTimestamp,
 } = require("../utils/helpers/global.helper.js/global.helper");
+const { getCumulativeAmount } = require("../utils/helpers/defi.helper");
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ router.get(
         if (err) {
           console.error("err", err);
         }
-        res.send(result);
+        res.send(getCumulativeAmount(result));
       }
     );
   })
