@@ -5,19 +5,25 @@ const getRedeableDate = (dayTimestamp) => {
 };
 
 const getCumulativeAmount = (arrayDataHistory) => {
-  let tableauCumul = [];
-  let montantCumul = 0;
+  let arrayCumul = [];
+  let amountCumulUSDFI = 0;
+  let amountCumulETHFI = 0;
+  let amountCumulBTCFI = 0;
 
   for (let i = 0; i < arrayDataHistory.length; i += 1) {
-    montantCumul += arrayDataHistory[i].amount;
-    tableauCumul.push({
+    amountCumulUSDFI += arrayDataHistory[i].amountUSDFI;
+    amountCumulETHFI += arrayDataHistory[i].amountETHFI;
+    amountCumulBTCFI += arrayDataHistory[i].amountBTCFI;
+    arrayCumul.push({
       day: getRedeableDate(arrayDataHistory[i].day * 1000),
-      amount: montantCumul,
+      amountUSDFI: amountCumulUSDFI,
+      amountETHFI: amountCumulETHFI,
+      amountBTCFI: amountCumulBTCFI,
       id: arrayDataHistory[i].id,
     });
   }
 
-  return tableauCumul;
+  return arrayCumul;
 };
 
 module.exports = {
