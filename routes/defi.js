@@ -17,7 +17,8 @@ const asyncMiddleware = (fn) => (req, res, next) => {
 router.get(
   "/historyYield",
   asyncMiddleware(async (req, res, next) => {
-    const dayTimestamp = getDayTimestamp();
+    const offset = 120 * 60;
+    const dayTimestamp = getDayTimestamp() + offset;
     selectAll();
     pool.query(
       `SELECT * FROM graph WHERE day<=${dayTimestamp}`,
