@@ -8,9 +8,8 @@ const timeSerializer = (currentTimestamp) => {
 };
 
 const getDayTimestamp = () => {
-  const offset = 120 * 60;
   const currentDate = new Date().getTime();
-  const dayTimestamp = timeSerializer(currentDate) + offset;
+  const dayTimestamp = timeSerializer(currentDate);
   return dayTimestamp;
 };
 
