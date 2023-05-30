@@ -6,7 +6,10 @@ const {
 const {
   getDayTimestamp,
 } = require("../utils/helpers/global.helper.js/global.helper");
-const { getCumulativeAmount } = require("../utils/helpers/defi.helper");
+const {
+  getCumulativeAmount,
+  getArrayApy,
+} = require("../utils/helpers/defi.helper");
 
 const router = express.Router();
 
@@ -18,6 +21,7 @@ router.get(
   "/historyYield",
   asyncMiddleware(async (req, res, next) => {
     const dayTimestamp = getDayTimestamp();
+    console.log(dayTimestamp);
     selectAll();
     pool.query(
       `SELECT * FROM graph WHERE day<=${dayTimestamp}`,
