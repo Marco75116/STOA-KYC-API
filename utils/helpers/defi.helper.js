@@ -26,6 +26,41 @@ const getCumulativeAmount = (arrayDataHistory) => {
   return arrayCumul;
 };
 
+const apyFormula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
+  return rCPTPrevious / rCPTCurrent ** (365 / (idCurrent - idPrevious)) - 1;
+};
+
+const getArrayApy = (rowsData) => {
+  const prevData = rowsData[0];
+  const todayData = rowsData[1];
+
+  const apyUSDFI = apyFormula(
+    prevData.id,
+    todayData.id,
+    prevData.rCPTUSDFI,
+    todayData.rCPTUSDFI
+  );
+  const apyETHFI = apyFormula(
+    prevData.id,
+    todayData.id,
+    prevData.rCPTETHFI,
+    todayData.rCPTETHFI
+  );
+  const apyBTCFI = apyFormula(
+    prevData.id,
+    todayData.id,
+    prevData.rCPTBTCFI,
+    todayData.rCPTBTCFI
+  );
+
+  return {
+    USDFI: apyUSDFI,
+    ETHFI: apyETHFI,
+    BTCFI: apyBTCFI,
+  };
+};
+
 module.exports = {
   getCumulativeAmount,
+  getArrayApy,
 };

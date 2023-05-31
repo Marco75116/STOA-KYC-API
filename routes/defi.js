@@ -21,8 +21,7 @@ router.get(
   "/historyYield",
   asyncMiddleware(async (req, res, next) => {
     const dayTimestamp = getDayTimestamp();
-    console.log(dayTimestamp);
-    selectAll();
+
     pool.query(
       `SELECT * FROM graph WHERE day<=${dayTimestamp}`,
       (err, result, fields) => {
@@ -30,6 +29,25 @@ router.get(
           console.error("err", err);
         }
         res.send(getCumulativeAmount(result));
+      }
+    );
+  })
+);
+
+router.get(
+  "/apy",
+  asyncMiddleware(async (req, res, next) => {
+    const dayTimestamp = getDayTimestamp() + 120 * 60;
+    const daySeconds = 86400;
+    const period = req.query.period;
+    pool.query(
+      `SELECT * FROM graph WHERE day=${dayTimestamp} 
+      OR day=${dayTimestamp - period * daySeconds} `,
+      (err, result, fields) => {
+        if (err) {
+          console.error("err", err);
+        }
+        res.send(getArrayApy(result));
       }
     );
   })
