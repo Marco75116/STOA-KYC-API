@@ -37,7 +37,7 @@ router.get(
 router.get(
   "/apy",
   asyncMiddleware(async (req, res, next) => {
-    const dayTimestamp = getDayTimestamp() + 120 * 60;
+    const dayTimestamp = getDayTimestamp();
     const daySeconds = 86400;
     const period = req.query.period;
     pool.query(
