@@ -26,13 +26,21 @@ const getCumulativeAmount = (arrayDataHistory) => {
   return arrayCumul;
 };
 
+const reverve = (number) => {
+  return 1 / number;
+};
+
+const aprToApy = (apr) => {
+  const rebasePerYear = 365;
+  return (1 + apr / rebasePerYear) ** rebasePerYear - 1;
+};
+
 const apyFormula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
-  if (rCPTCurrent) {
-    const fee = 0.1;
-    return (
-      (rCPTPrevious / rCPTCurrent ** (365 / (idCurrent - idPrevious)) - 1) *
-      (1 - fee)
-    );
+  if (rCPTCurrent && rCPTPrevious) {
+    const apr =
+      ((reverve(rCPTCurrent) - reverve(rCPTPrevious)) / reverve(rCPTPrevious)) *
+      (365 / (idCurrent - idPrevious));
+    return aprToApy(apr);
   } else {
     return 0;
   }
