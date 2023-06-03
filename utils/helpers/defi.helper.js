@@ -27,11 +27,15 @@ const getCumulativeAmount = (arrayDataHistory) => {
 };
 
 const apyFormula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
-  const fee = 0.1;
-  return (
-    (rCPTPrevious / rCPTCurrent ** (365 / (idCurrent - idPrevious)) - 1) *
-    (1 - fee)
-  );
+  if (rCPTCurrent) {
+    const fee = 0.1;
+    return (
+      (rCPTPrevious / rCPTCurrent ** (365 / (idCurrent - idPrevious)) - 1) *
+      (1 - fee)
+    );
+  } else {
+    return 0;
+  }
 };
 
 const getArrayApy = (rowsData) => {
