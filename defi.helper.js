@@ -26,43 +26,27 @@ const getCumulativeAmount = (arrayDataHistory) => {
   return arrayCumul;
 };
 
-const reverse = (number) => {
-  return 1 / number;
-};
-
-const aprToApy = (apr) => {
-  const rebasePerYear = 365;
-  return (1 + apr / rebasePerYear) ** rebasePerYear - 1;
-};
-
-const apyFormula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
-  if (rCPTCurrent && rCPTPrevious) {
-    const apr =
-      ((reverse(rCPTCurrent) - reverse(rCPTPrevious)) / reverse(rCPTPrevious)) *
-      (365 / (idCurrent - idPrevious));
-    return aprToApy(apr);
-  } else {
-    return 0;
-  }
+const mula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
+  return rCPTPrevious / rCPTCurrent ** (365 / (idCurrent - idPrevious)) - 1;
 };
 
 const getArrayApy = (rowsData) => {
   const prevData = rowsData[0];
   const todayData = rowsData[1];
 
-  const apyUSDFI = apyFormula(
+  const apyUSDFI = mula(
     prevData.id,
     todayData.id,
     prevData.rCPTUSDFI,
     todayData.rCPTUSDFI
   );
-  const apyETHFI = apyFormula(
+  const apyETHFI = mula(
     prevData.id,
     todayData.id,
     prevData.rCPTETHFI,
     todayData.rCPTETHFI
   );
-  const apyBTCFI = apyFormula(
+  const apyBTCFI = mula(
     prevData.id,
     todayData.id,
     prevData.rCPTBTCFI,
