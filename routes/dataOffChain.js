@@ -1,6 +1,8 @@
 const express = require("express");
 const {
   insertDataOffChain,
+  insertForm,
+  checkExistDataOffChain,
 } = require("../utils/helpers/sql.helper.js/sql.helper");
 const {
   getDayTimestamp,
@@ -18,6 +20,36 @@ router.get(
     const dayTimestamp = getDayTimestamp();
     insertDataOffChain(req.params.address, dayTimestamp);
     res.send(true);
+  })
+);
+
+router.get(
+  "/form/:address",
+  asyncMiddleware(async (req, res, next) => {
+    console.log(
+      req.query.firstName,
+      req.query.lastName,
+      req.query.email,
+      req.query.marketing,
+      req.query.signature
+    );
+    insertForm(
+      req.params.address,
+      req.query.firstName,
+      req.query.lastName,
+      req.query.email,
+      req.query.marketing,
+      req.query.signature
+    );
+    res.send(true);
+  })
+);
+
+router.get(
+  "/checkDataOffChain/:address",
+  asyncMiddleware(async (req, res, next) => {
+    const result = await checkExistDataOffChain(req.params.address);
+    res.send(result);
   })
 );
 

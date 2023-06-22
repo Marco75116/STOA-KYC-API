@@ -61,8 +61,50 @@ const insertDataOffChain = (address, dayTimestamp) => {
   }
 };
 
+const checkExistDataOffChain = (address) => {
+  const query = promisify(pool.query).bind(pool);
+
+  const checkData = () => {
+    return query(
+      `SELECT firstName FROM dataOffChain WHERE wallet='${address}' `
+    );
+  };
+
+  return checkData().then((result) => {
+    return result[0].firstName !== "";
+  });
+};
+
+const insertForm = (
+  address,
+  firstName,
+  lastName,
+  email,
+  marketing,
+  signature
+) => {
+  if (
+    address !== undefined &&
+    address.length !== 0 &&
+    signature !== undefined &&
+    signature.length !== 0
+  ) {
+    const query = promisify(pool.query).bind(pool);
+
+    const addDataOffChain = () => {
+      return query(
+        `UPDATE  dataOffChain SET firstName ='${firstName}' ,lastname = '${lastName}',email ='${email}',marketing = '${marketing}',signature = '${signature}' WHERE wallet='${address}'`
+      );
+    };
+
+    addDataOffChain();
+  }
+};
+
 module.exports = {
   selectAll,
   pool,
   insertDataOffChain,
+  insertForm,
+  checkExistDataOffChain,
 };
