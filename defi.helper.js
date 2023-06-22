@@ -31,33 +31,37 @@ const mula = (idPrevious, idCurrent, rCPTPrevious, rCPTCurrent) => {
 };
 
 const getArrayApy = (rowsData) => {
-  const prevData = rowsData[0];
-  const todayData = rowsData[1];
+  try {
+    const prevData = rowsData[0];
+    const todayData = rowsData[1];
 
-  const apyUSDFI = mula(
-    prevData.id,
-    todayData.id,
-    prevData.rCPTUSDFI,
-    todayData.rCPTUSDFI
-  );
-  const apyETHFI = mula(
-    prevData.id,
-    todayData.id,
-    prevData.rCPTETHFI,
-    todayData.rCPTETHFI
-  );
-  const apyBTCFI = mula(
-    prevData.id,
-    todayData.id,
-    prevData.rCPTBTCFI,
-    todayData.rCPTBTCFI
-  );
+    const apyUSDFI = mula(
+      prevData.id,
+      todayData.id,
+      prevData.rCPTUSDFI,
+      todayData.rCPTUSDFI
+    );
+    const apyETHFI = mula(
+      prevData.id,
+      todayData.id,
+      prevData.rCPTETHFI,
+      todayData.rCPTETHFI
+    );
+    const apyBTCFI = mula(
+      prevData.id,
+      todayData.id,
+      prevData.rCPTBTCFI,
+      todayData.rCPTBTCFI
+    );
 
-  return {
-    USDFI: apyUSDFI,
-    ETHFI: apyETHFI,
-    BTCFI: apyBTCFI,
-  };
+    return {
+      USDFI: apyUSDFI,
+      ETHFI: apyETHFI,
+      BTCFI: apyBTCFI,
+    };
+  } catch (error) {
+    throw Error("getgetArrayApy failed caused by ", error);
+  }
 };
 
 module.exports = {

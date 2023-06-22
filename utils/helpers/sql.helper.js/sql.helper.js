@@ -56,7 +56,7 @@ const insertDataOffChain = (address, dayTimestamp) => {
         console.log(err);
       })
       .finally(() => {
-        pool.end();
+        // pool.end();
       });
   }
 };
