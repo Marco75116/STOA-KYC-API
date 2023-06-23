@@ -71,6 +71,9 @@ const checkExistDataOffChain = (address) => {
   };
 
   return checkData().then((result) => {
+    if (result.lenght === 0) {
+      return false;
+    }
     return result[0].firstName !== "";
   });
 };

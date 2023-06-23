@@ -26,13 +26,6 @@ router.get(
 router.get(
   "/form/:address",
   asyncMiddleware(async (req, res, next) => {
-    console.log(
-      req.query.firstName,
-      req.query.lastName,
-      req.query.email,
-      req.query.marketing,
-      req.query.signature
-    );
     insertForm(
       req.params.address,
       req.query.firstName,
