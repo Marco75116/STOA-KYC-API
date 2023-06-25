@@ -49,7 +49,7 @@ const insertDataOffChain = (address, dayTimestamp) => {
     };
 
     const createRowWalletData = () => {
-      return query(`INSERT INTO walletData (wallet) VALUES ('${address})`);
+      return query(`INSERT INTO walletData (wallet) VALUES ('${address}')`);
     };
 
     firstQuery()
@@ -67,11 +67,18 @@ const insertDataOffChain = (address, dayTimestamp) => {
         // pool.end();
       });
 
-    checkQuery().then((results) => {
-      if (results.length === 0) {
-        return createRowWalletData();
-      }
-    });
+    checkQuery()
+      .then((results) => {
+        if (results.length === 0) {
+          return createRowWalletData();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        // pool.end();
+      });
   }
 };
 
