@@ -76,7 +76,17 @@ const getArrayApy = (rowsData) => {
   };
 };
 
+const getDepositArray = (rowsData) => {
+  const { depositUSDFI, depositETHFI, depositBTCFI } = rowsData;
+  return {
+    USDFI: depositUSDFI,
+    ETHFI: depositETHFI,
+    BTCFI: depositBTCFI,
+  };
+};
+
 module.exports = {
   getCumulativeAmount,
   getArrayApy,
+  getDepositArray,
 };

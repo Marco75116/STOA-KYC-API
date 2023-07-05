@@ -9,6 +9,7 @@ const {
 const {
   getCumulativeAmount,
   getArrayApy,
+  getDepositArray,
 } = require("../utils/helpers/defi.helper");
 
 const router = express.Router();
@@ -48,6 +49,21 @@ router.get(
           console.error("err", err);
         }
         res.send(getArrayApy(result));
+      }
+    );
+  })
+);
+
+router.get(
+  "/deposit/:address",
+  asyncMiddleware(async (req, res, next) => {
+    pool.query(
+      `SELECT * FROM walletData WHERE  wallet='${req.params.address}'`,
+      (err, result, fields) => {
+        if (err) {
+          console.error("err", err);
+        }
+        res.send(getDepositArray(result[0]));
       }
     );
   })
