@@ -48,6 +48,7 @@ router.get(
         if (err) {
           console.error("err", err);
         }
+        console.log("result of root /apy : ", result);
         res.send(getArrayApy(result));
       }
     );
