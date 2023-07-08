@@ -3,6 +3,7 @@ const {
   insertDataOffChain,
   insertForm,
   checkExistDataOffChain,
+  getProfilData,
 } = require("../utils/helpers/sql.helper.js/sql.helper");
 const {
   getDayTimestamp,
@@ -42,6 +43,14 @@ router.get(
   "/checkDataOffChain/:address",
   asyncMiddleware(async (req, res, next) => {
     const result = await checkExistDataOffChain(req.params.address);
+    res.send(result);
+  })
+);
+
+router.get(
+  "/getProfilData/:address",
+  asyncMiddleware(async (req, res, next) => {
+    const result = await getProfilData(req.params.address);
     res.send(result);
   })
 );

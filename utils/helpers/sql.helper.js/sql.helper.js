@@ -99,6 +99,18 @@ const checkExistDataOffChain = (address) => {
   });
 };
 
+const getProfilData = (address) => {
+  const query = promisify(pool.query).bind(pool);
+
+  const checkData = () => {
+    return query(`SELECT * FROM dataOffChain WHERE wallet='${address}' `);
+  };
+
+  return checkData().then((result) => {
+    return result;
+  });
+};
+
 const insertForm = (
   address,
   firstName,
@@ -131,4 +143,5 @@ module.exports = {
   insertDataOffChain,
   insertForm,
   checkExistDataOffChain,
+  getProfilData,
 };
