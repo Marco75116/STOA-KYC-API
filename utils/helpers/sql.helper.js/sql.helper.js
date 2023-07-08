@@ -107,7 +107,7 @@ const getProfilData = (address) => {
   };
 
   return checkData().then((result) => {
-    return result;
+    return result[0];
   });
 };
 
