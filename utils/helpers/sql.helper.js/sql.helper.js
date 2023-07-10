@@ -136,6 +136,19 @@ const insertForm = (
     addDataOffChain();
   }
 };
+const modifyForm = (address, firstName, lastName, email) => {
+  if (address !== undefined && address.length !== 0) {
+    const query = promisify(pool.query).bind(pool);
+
+    const addDataOffChain = () => {
+      return query(
+        `UPDATE dataOffChain SET firstName ='${firstName}' ,lastname = '${lastName}',email ='${email}' WHERE wallet='${address}'`
+      );
+    };
+
+    addDataOffChain();
+  }
+};
 
 module.exports = {
   selectAll,
@@ -144,4 +157,5 @@ module.exports = {
   insertForm,
   checkExistDataOffChain,
   getProfilData,
+  modifyForm,
 };

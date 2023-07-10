@@ -4,10 +4,12 @@ const {
   insertForm,
   checkExistDataOffChain,
   getProfilData,
+  modifyForm,
 } = require("../utils/helpers/sql.helper.js/sql.helper");
 const {
   getDayTimestamp,
 } = require("../utils/helpers/global.helper.js/global.helper");
+const { ethers } = require("ethers");
 
 const router = express.Router();
 
@@ -34,6 +36,22 @@ router.get(
       req.query.email,
       req.query.marketing,
       req.query.signature
+    );
+    res.send(true);
+  })
+);
+
+router.get(
+  "/modifyForm",
+  asyncMiddleware(async (req, res, next) => {
+    const message = "I certify the truthfulness of the informations provided.";
+    const address = ethers.verifyMessage(message, req.query.signature);
+
+    modifyForm(
+      address,
+      req.query.firstName,
+      req.query.lastName,
+      req.query.email
     );
     res.send(true);
   })
